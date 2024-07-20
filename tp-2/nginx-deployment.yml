@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1 # spécifie la version de l'API Kubernetes utilisée pour créer cet objet
+kind: Deployment # spécifie le type d'objet Kubernetes créé, ici un déploiement
+metadata: # contient des informations sur le déploiement, telles que le nom et les étiquettes pour identifier notre ressource Kubernetes
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec: # contient les détails du déploiement, tels que le nombre de réplicas, la stratégie de mise à jour, le sélecteur et le templ de pod
+  replicas: 2 # Nous définissons deux réplicas pour l'application Nginx.
+  strategy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector: 
+    matchLabels:
+      app: nginx
+  template: # Dans cette section nous allons définir le modèle de pod qui sera créé.
+    metadata:
+      labels:
+        app: nginx # Nous définissons une étiquette "app: nginx" pour identifier les pods Nginx,
+    spec:
+      containers: # nous configurons un conteneur Nginx avec un port d'écoute sur le port 80
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80

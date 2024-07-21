@@ -22,6 +22,6 @@ spec: # contient les détails du déploiement, tels que le nombre de réplicas, 
     spec:
       containers: # nous configurons un conteneur Nginx avec un port d'écoute sur le port 80
       - name: nginx
-        image: nginx
+        image: nginx:1.18.0
         ports:
         - containerPort: 80

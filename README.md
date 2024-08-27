@@ -206,6 +206,9 @@ pour un deployment
 pour un namespace
 => kubectl create namespace <nom-namespace> --dry-run=client -o yaml > <nom-fichier.yml>
 
+création d'un pod en précisant namespace, port et label 
+=> kubectl run <nom-pod> --image=<nom-img> --dry-run=client  --env="APP_COLOR=blue" --port=<port> --namespace=production --labels="app=web" -o yaml > pod-blue.yml
+
 Nota: Dans nom-img on peut préciser la version si on veut, exemple nginx:1.18 (si on ne précise pas, c'est la "latest" qui est considérée)
 
 pour supprimer un objet
@@ -238,6 +241,9 @@ On peut rediriger le traffic venant de l'extérieur vers un port précis d'un po
 kubectl port-forward <nom-pod> <port-externe>:<port-du-pod> --address 0.0.0.0
 
 Nota: pour stopper la redirection on arrête juste le prompt, en faisant par exemple Ctrl+C 
+
+A vérifier, mais je le comprends ainsi, cette commande port-forward envoie toutes les requetes venant de l'extérieur sur 
+me <port-externe> du node vers le port <port-du-pod> du pod <nom-pod>
 
 
 *** pour que les replicas soient modifiés progressivement ****
@@ -339,6 +345,71 @@ namespace kubesystem => dans lequel k8s crée les ressources liées à son fonct
 
 namespace kubepublic => (Tous les pods créés) Toutes les ressources créées dans le namespace kubepublic sont visibles uniquement en lecture seule par tous 
 i.e. que personne d'autre que moi ne peut les modifier 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

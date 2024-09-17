@@ -28,7 +28,7 @@ et kubelet permet de simuler la présence d'un worker au sein du master
 
 
 
-****** kubeadm, minikube sont des solutions de training sur k8s ***********
+****** kubeadm, minikube sont des solutions de training sur k8s ***********                      
 quand on fait => docker ps
 => on voit les containers qui tournent 
 et on se rend compte que pour chacun des environnements (kubeadm ou minikube)
@@ -39,10 +39,10 @@ pour packager un service ou une appli
 
 
 
-*******************************************
+***                
 
 un objet est une ressource qu'on peut créer dans k8s.
-=> le pod
+=> le pod           
 Un pod contient l'environnement (réseau, stockage, container) qui permet d'exécuter un ou +sieurs container : il peut avoir un volume, un ou +sieurs containers,...
 
 le pod est l'élt que k8s connait,
@@ -55,13 +55,8 @@ Si par exemple, je veux déployer un container,
 je dois constituer un pod
 
 
-=> (objet suivant)
-
-**** replicaset *****
-ils permettent d'apporter de la résilience et 
-de la scalabilité
-
-en garantissant qu'il y ait toujours un nombre minimal de pods
+=> **** replicaset *****                   
+ils permettent d'apporter de la résilience et de la scalabilité en garantissant qu'il y ait toujours un nombre minimal de pods
 
 dès qu'il y a suppression et qu'il se rend compte que le minimum n'est pas atteint, 
 il le recrée
